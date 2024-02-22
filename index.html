@@ -1274,7 +1274,7 @@ if (window[_0xfb9f[2]][_0xfb9f[1]] !== allowedDomain) {
 <h2>NRO v230 - [Java]</h2>
            <div class="download-container">
       <p>
-        <a style="color:#FFFFFF" href="NRO230.jar" class="btn btn-danger">
+        <a style="color:#FFFFFF" aria-label="Download" href="NRO230.jar" class="btn btn-danger">
              <img src="https://nro-design.github.io/download.gif" alt="»" width="18" heigh="18">
         <strong>NRO Java MOD / Bản > 1 <sup style="color:black"> Version: 230</sup></strong></a>
       </p>
@@ -1442,6 +1442,114 @@ NROAZ, NRO HoiUc, NRO 2009, NRO XUA</i>
           <br>
           <script src="https://nro-design.github.io/TEacrem.js"></script>
           <script src="https://nro-design.github.io/class.js"></script>
+
+		<script>
+// Biến global để kiểm tra xem cửa sổ alert có đang được hiển thị hay không
+var isAlertShown = false;
+
+// Biến global để lưu trữ tất cả các yêu cầu XMLHttpRequest
+var xhrRequests = [];
+
+// Bắt sự kiện click trên tất cả các liên kết tải xuống
+document.querySelectorAll('a[aria-label="Download"]').forEach(function(link) {
+    link.addEventListener('click', function(event) {
+        // Ngăn chặn hành vi mặc định của liên kết
+        event.preventDefault();
+
+        // Kiểm tra nếu cửa sổ alert chưa được hiển thị
+        if (!isAlertShown) {
+            // Đặt cờ hiển thị cửa sổ alert thành true
+            isAlertShown = true;
+
+            // Hiển thị cửa sổ alert
+            Swal.fire({
+                title: 'Downloading...',
+                html: 'Download progress: <span id="downloadProgress">0%</span>',
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                didOpen: () => {
+                    // Gửi yêu cầu XMLHttpRequest để tải xuống tệp
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('GET', link.getAttribute('href'), true);
+                    xhr.responseType = 'blob';
+
+                    // Thêm yêu cầu vào danh sách các yêu cầu
+                    xhrRequests.push(xhr);
+
+                    // Xử lý sự kiện progress để cập nhật tiến trình tải xuống
+                    xhr.addEventListener('progress', function(event) {
+                        if (event.lengthComputable) {
+                            var percentComplete = (event.loaded / event.total) * 100;
+                            // Cập nhật phần trăm tiến trình tải xuống trong cửa sổ alert
+                            document.getElementById('downloadProgress').innerText = percentComplete.toFixed(2) + '%';
+                        }
+                    });
+
+                    // Xử lý sự kiện load để xử lý khi tệp đã được tải xuống hoàn toàn
+                    xhr.addEventListener('load', function() {
+                        // Xác định nếu tải xuống thành công
+                        if (xhr.status === 200) {
+                            // Tạo một đường dẫn URL từ dữ liệu tải xuống và tên tệp
+                            var url = URL.createObjectURL(xhr.response);
+                            var fileName = link.getAttribute('download');
+                            // Tạo một liên kết ẩn để tải xuống tệp
+                            var hiddenLink = document.createElement('a');
+                            hiddenLink.href = url;
+                            hiddenLink.download = fileName;
+                            document.body.appendChild(hiddenLink);
+                            // Tự động kích hoạt liên kết để bắt đầu tải xuống tệp
+                            hiddenLink.click();
+                            // Xóa liên kết ẩn sau khi tệp đã được tải xuống
+                            document.body.removeChild(hiddenLink);
+                            // Xóa URL được tạo ra khỏi bộ nhớ để tránh rò rỉ bộ nhớ
+                            URL.revokeObjectURL(url);
+                            // Đóng cửa sổ alert khi tải xuống hoàn thành
+                            Swal.close();
+                            // Đặt cờ hiển thị cửa sổ alert thành false
+                            isAlertShown = false;
+                        } else {
+                            console.error('Download failed with status: ' + xhr.status);
+                            // Thêm mã HTML hoặc CSS để hiển thị thông báo lỗi
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Download failed',
+                                text: 'Liên kết bị hỏng hoặc đang bảo trì vui lòng chờ cập nhật.'
+                            });
+                            // Đặt cờ hiển thị cửa sổ alert thành false
+                            isAlertShown = false;
+                        }
+                    });
+
+                    // Xử lý sự kiện error để xử lý lỗi khi tải xuống
+                    xhr.addEventListener('error', function() {
+                        console.error('Download failed');
+                        // Thêm mã HTML hoặc CSS để hiển thị thông báo lỗi
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Download failed',
+                            text: 'Please try again later.'
+                        });
+                        // Đặt cờ hiển thị cửa sổ alert thành false
+                        isAlertShown = false;
+                    });
+
+                    // Bắt đầu tải xuống bằng cách gửi yêu cầu
+                    xhr.send();
+                },
+                willClose: () => {
+                    // Hủy bỏ tất cả các yêu cầu XMLHttpRequest còn lại nếu cửa sổ alert được đóng
+                    xhrRequests.forEach(function(xhr) {
+                        xhr.abort();
+                    });
+                    // Xóa tất cả các yêu cầu từ danh sách
+                    xhrRequests = [];
+                }
+            });
+        }
+    });
+});
+
+		</script>
           <script>
           var _0xb3c1 = ["\x6E\x72\x6F\x2D\x64\x65\x73\x69\x67\x6E\x2E\x67\x69\x74\x68\x75\x62\x2E\x69\x6F", "\x68\x6F\x73\x74\x6E\x61\x6D\x65", "\x6C\x6F\x63\x61\x74\x69\x6F\x6E", "\x68\x72\x65\x66", "\x68\x74\x74\x70\x73\x3A\x2F\x2F"];
           var allowedDomain = _0xb3c1[0];
