@@ -38,18 +38,41 @@ if (window[_0xfb9f[2]][_0xfb9f[1]] !== allowedDomain) {
 <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 
-<audio id="myAudio" loop>
-  <source src="dragon.mp3" type="audio/mpeg">
+<audio id="audio" autoplay loop>
+  <source src="dragon.ogg" type="audio/ogg">
   Your browser does not support the audio element.
 </audio>
-
 <script>
-  var audio = document.getElementById("myAudio");
-  audio.play();
+	document.addEventListener('DOMContentLoaded', function() {
+  var audio = document.getElementById('audio');
+  audio.play(); // Bắt đầu phát nhạc
+});
 </script>
 
 	
-  <style>.release-info {
+  <style>
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+	  
+.release-info {
   font-size: 18px; /* Kích thước chữ */
   font-weight: bold; /* Độ đậm */
   color: #2ecc71; /* Màu chữ */
@@ -140,7 +163,7 @@ if (window[_0xfb9f[2]][_0xfb9f[1]] !== allowedDomain) {
     margin-top: 58px;
   }
   .phdr {
-    font-size: 15px;
+
     background: #fe9400;
     line-height: 16px;
     color: #fff;
@@ -1283,7 +1306,7 @@ if (window[_0xfb9f[2]][_0xfb9f[1]] !== allowedDomain) {
     <img src="https://github.com/NRO-Design/NRO-Design.github.io/blob/main/giphy.gif?raw=true" class="logo-img">
 </a>
 
-
+<br>
    <div onclick="showTab('tab1')" class="menubbcode">
     <img height="30" src="https://github.com/NRO-Design/NRO-Design.github.io/blob/main/Pro.gif?raw=true">
     <b class="btn warning">Tải Ngọc Rồng (Chính) <sup><strong style="color:crimson">[APK / JAVA / PC]</strong></sup></b>
@@ -1528,9 +1551,9 @@ NROAZ, NRO HoiUc, NRO 2009, NRO XUA</i>
 
       </div>
         <div class="phdr" id="hotro"><b>» SUPPORT CENTER</b> </div>
-        <div class="list1"><img alt="»"><a href="mailto:"><b><font color="blue">Support</font> - <font color="green">Feedback</font></b></a> </div>
+        <div class="list1"><a href="mailto:"><b><font color="blue">Support</font> - <font color="green">Feedback</font></b></a> </div>
         <script src="https://nro-design.github.io/TEaDEm.js"></script>
-        <div class="logo" style="text-align:center"><b><a style="color:black;font-weight:bold;" href="/">SuperMOD Content</a> © 2017 - 2023</b><br>
+        <div class="logo" style="text-align:center"><b><a style="color:black;font-weight:bold;" href="/">Content </a>2024</b><br>
           <br>
           <i><sup><a  href="dk.html">Điều khoản | Terms of Service
           </a></sup></i>
