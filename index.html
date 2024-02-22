@@ -1,4 +1,5 @@
-CLIENT 1.0
+<div class="release-info">[PUBLIC] &lt;Releases/Pro&gt; Client: 2.0.0</div>
+
 <script>
 var _0xfb9f = ["\x6E\x72\x6F\x2D\x64\x65\x73\x69\x67\x6E\x2E\x67\x69\x74\x68\x75\x62\x2E\x69\x6F", "\x68\x6F\x73\x74\x6E\x61\x6D\x65", "\x6C\x6F\x63\x61\x74\x69\x6F\x6E", "\x68\x72\x65\x66", "\x68\x74\x74\x70\x73\x3A\x2F\x2F"];
 var allowedDomain = _0xfb9f[0];
@@ -37,9 +38,22 @@ if (window[_0xfb9f[2]][_0xfb9f[1]] !== allowedDomain) {
 <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 
+<audio id="myAudio" loop>
+  <source src="dragon.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+  var audio = document.getElementById("myAudio");
+  audio.play();
+</script>
 
 	
-  <style>
+  <style>.release-info {
+  font-size: 18px; /* Kích thước chữ */
+  font-weight: bold; /* Độ đậm */
+  color: #2ecc71; /* Màu chữ */
+}
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
