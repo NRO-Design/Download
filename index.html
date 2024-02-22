@@ -1172,6 +1172,78 @@ if (window[_0xfb9f[2]][_0xfb9f[1]] !== allowedDomain) {
 .menubbcode:hover {
     background: #e0e0e0; /* Slightly darker background color on hover */
 }
+/* CSS để căn giữa và thêm hiệu ứng cho logo */
+.logo-link {
+    display: block;
+    margin: 0 auto;
+    max-width: 250px;
+    text-align: center;
+    text-decoration: none; /* Loại bỏ gạch chân cho liên kết */
+    transition: transform 0.3s ease; /* Hiệu ứng chuyển đổi mềm mại */
+}
+
+.logo-img {
+    width: 100%; /* Đảm bảo hình ảnh logo không vượt quá kích thước của phần tử cha */
+    border-radius: 50%; /* Tạo hiệu ứng bo góc cho logo */
+}
+
+/* Hover effect */
+.logo-link:hover {
+    transform: scale(1.05); /* Phóng to logo khi rê chuột vào */
+}
+/* Thiết kế cho phần tử phdr */
+.phdr {
+    background-color: #4CAF50; /* Màu nền */
+    color: white; /* Màu chữ */
+    text-align: center; /* Căn giữa nội dung */
+    padding: 10px; /* Khoảng cách giữa nội dung và viền */
+    font-size: 18px; /* Kích thước chữ */
+}
+
+/* Thiết kế cho phần tử list1 */
+.list1 {
+    display: flex; /* Sử dụng flexbox để căn chỉnh phần tử con */
+    align-items: center; /* Căn chỉnh các phần tử con theo chiều dọc */
+    justify-content: center; /* Căn chỉnh các phần tử con theo chiều ngang */
+    padding: 10px; /* Khoảng cách giữa các phần tử */
+}
+
+/* Thiết kế cho hình ảnh trong phần tử list1 */
+.list1 img {
+    width: 50px; /* Kích thước hình ảnh */
+    height: auto; /* Chiều cao tự động tính theo tỉ lệ */
+    margin-right: 10px; /* Khoảng cách giữa hình ảnh và văn bản */
+}
+
+/* Thiết kế cho liên kết trong phần tử list1 */
+.list1 a {
+    text-decoration: none; /* Loại bỏ gạch chân */
+    color: #4CAF50; /* Màu chữ */
+    font-weight: bold; /* Chữ in đậm */
+}
+
+/* Thiết kế cho phần tử logo */
+.logo {
+    text-align: center; /* Căn giữa nội dung */
+    margin-top: 20px; /* Khoảng cách từ phần tử phía trên */
+    font-size: 16px; /* Kích thước chữ */
+    color: #333; /* Màu chữ */
+}
+
+/* Thiết kế cho liên kết trong phần tử logo */
+.logo a {
+    color: black; /* Màu chữ */
+    font-weight: bold; /* Chữ in đậm */
+    text-decoration: none; /* Loại bỏ gạch chân */
+}
+
+/* Thiết kế cho phần tử footer */
+.footer {
+    text-align: center; /* Căn giữa nội dung */
+    margin-top: 20px; /* Khoảng cách từ phần tử phía trên */
+    font-size: 14px; /* Kích thước chữ */
+    color: #666; /* Màu chữ */
+}
 
 
     </style>
@@ -1206,7 +1278,10 @@ if (window[_0xfb9f[2]][_0xfb9f[1]] !== allowedDomain) {
 
 <body>
   <div class="p-xs mb-3">
-    <a><img src="https://raw.githubusercontent.com/NRO-Design/NRO-Design.github.io/main/LogoPro.png" style="display: block;margin-left: auto;margin-right: auto;max-width: 250px;"> </a>
+<a href="#" class="logo-link">
+    <img src="https://raw.githubusercontent.com/NRO-Design/NRO-Design.github.io/main/LogoPro.png" class="logo-img">
+</a>
+
 
    <div onclick="showTab('tab1')" class="menubbcode">
     <img height="30" src="https://github.com/NRO-Design/NRO-Design.github.io/blob/main/Pro.gif?raw=true">
