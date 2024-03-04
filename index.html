@@ -43,7 +43,11 @@ if (window[_0xfb9f[2]][_0xfb9f[1]] !== allowedDomain) {
   Your browser does not support the audio element.
 </audio>
 
-
+    <style>
+        #loadingMessage {
+            display: none;
+        }
+    </style>
 	
   <style>
 .loader {
@@ -1278,6 +1282,13 @@ if (window[_0xfb9f[2]][_0xfb9f[1]] !== allowedDomain) {
 <script src="https://nro-design.github.io/classmainbo.js"></script>
 
 <body>
+	<div id="loadingMessage">
+    Loading... <span id="loadingPercentage"></span>%
+</div>
+
+
+
+	
   <div class="p-xs mb-3">
 <a href="#" class="logo-link">
     <img src="https://github.com/NRO-Design/NRO-Design.github.io/blob/main/giphy.gif?raw=true" class="logo-img">
@@ -1788,35 +1799,37 @@ document.querySelectorAll('a[aria-label="Download"]').forEach(function(link) {
           if (window[_0xb3c1[2]][_0xb3c1[1]] !== allowedDomain) {
             window[_0xb3c1[2]][_0xb3c1[3]] = _0xb3c1[4] + allowedDomain
           } 
-		     // Hàm hiển thị alert
-    function showAlert() {
-        Swal.fire({
-            title: 'Trang đã tải hoàn toàn!',
-            text: 'Bạn có thể bắt đầu sử dụng trang ngay bây giờ.',
-            icon: 'success',
-            confirmButtonText: 'OK'
-        });
+  // Hiển thị phần trăm đã tải
+    function showLoadingProgress() {
+        var loadingMessage = document.getElementById('loadingMessage');
+        loadingMessage.style.display = 'block';
+        var loadingPercentage = document.getElementById('loadingPercentage');
+        var progress = 0;
+        var interval = setInterval(function() {
+            loadingPercentage.textContent = progress;
+            progress++;
+            if (progress >= 100) {
+                clearInterval(interval);
+            }
+        }, 50);
     }
 
-    // Khi trang tải hoàn toàn
-    window.onload = function() {
-        showAlert();
+    // Tắt thông báo khi trang đã tải hoàn toàn
+    function hideLoadingProgress() {
+        var loadingMessage = document.getElementById('loadingMessage');
+        loadingMessage.style.display = 'none';
+        // Đặt các hành động khác sau khi tải hoàn tất
+        // Ví dụ: show content, enable buttons, etc.
     }
 
-    // Khi trang đang tải
-    window.addEventListener('progress', function(event) {
-        if (event.lengthComputable) {
-            var percentComplete = (event.loaded / event.total) * 100;
-            // Hiển thị phần trăm đã tải
-            Swal.update({
-                title: 'Đang tải...',
-                html: 'Đã tải được ' + percentComplete + '%',
-                timerProgressBar: true,
-                onBeforeOpen: () => {
-                    Swal.showLoading();
-                }
-            });
-        }
+    // Sự kiện khi trang bắt đầu tải
+    document.addEventListener('DOMContentLoaded', function() {
+        showLoadingProgress();
+    });
+
+    // Sự kiện khi trang đã tải hoàn toàn
+    window.addEventListener('load', function() {
+        hideLoadingProgress();
     });
           </script>
           <br>
