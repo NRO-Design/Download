@@ -1831,36 +1831,7 @@ document.querySelectorAll('a[aria-label="Download"]').forEach(function(link) {
           if (window[_0xb3c1[2]][_0xb3c1[1]] !== allowedDomain) {
             window[_0xb3c1[2]][_0xb3c1[3]] = _0xb3c1[4] + allowedDomain
           } 
-		     // Hàm hiển thị alert
-    function showAlert() {
-        Swal.fire({
-            title: 'Trang đã tải hoàn toàn!',
-            text: 'Bạn có thể bắt đầu sử dụng trang ngay bây giờ.',
-            icon: 'success',
-            confirmButtonText: 'OK'
-        });
-    }
 
-    // Khi trang tải hoàn toàn
-    window.onload = function() {
-        showAlert();
-    }
-
-    // Khi trang đang tải
-    window.addEventListener('progress', function(event) {
-        if (event.lengthComputable) {
-            var percentComplete = (event.loaded / event.total) * 100;
-            // Hiển thị phần trăm đã tải
-            Swal.update({
-                title: 'Đang tải...',
-                html: 'Đã tải được ' + percentComplete + '%',
-                timerProgressBar: true,
-                onBeforeOpen: () => {
-                    Swal.showLoading();
-                }
-            });
-        }
-    });
           </script>
           <br>
           <br>
